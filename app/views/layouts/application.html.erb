@@ -1,12 +1,15 @@
 <!DOCTYPE html>
+
 <html>
   <head>
     <title>Data Administration</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag "application","vendor/jquery.anystretch.min", 'data-turbolinks-track': 'reload'%>
   </head>
 
   <body>
@@ -32,6 +35,8 @@
     </div>
   </div>
   <script>
+      $('.home-banner').anystretch();
+
       var hideNotice = function(){
           $(".notice").fadeOut("slow");
       }
