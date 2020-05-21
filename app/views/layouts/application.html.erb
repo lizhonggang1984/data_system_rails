@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>DataSystem</title>
+    <title>Data Administration</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +10,33 @@
   </head>
 
   <body>
+  <div class="navbar clearfix">
+    <div class="container">
+      <a class="navbar-brand" href="/">Data System</a>
+      <ul class="nav right">
+        <li><%= link_to "login","#" %></li>
+        <li><%= link_to "Register","#" %></li>
+      </ul>
+    </div>
+  </div>
+
     <%= yield %>
+
+
+  <% if flash.notice %>
+    <div class="notice"><%= flash.notice %></div>
+  <% end %>
+  <div class="footer">
+    <div>
+      <p class="align">©Copy Right©  2020</p>
+    </div>
+  </div>
+  <script>
+      var hideNotice = function(){
+          $(".notice").fadeOut("slow");
+      }
+      setTimeout(hideNotice, 2000);
+  </script>
+
   </body>
 </html>
