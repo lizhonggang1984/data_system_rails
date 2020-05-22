@@ -22,8 +22,8 @@
           <!--当前有用户登录，并且该用户为管理员，显示关于、用户管理、帖子管理-->
           <% if @current_user && @current_user.role == 1 %>
             <li><%= link_to "关于","#" %></li>
-            <li><%= link_to "用户管理","#" %></li>
-            <li><%= link_to "帖子管理", "#"%></li>
+            <li><%= link_to "Admin User","#" %></li>
+            <li><%= link_to "Admin Post", "#"%></li>
             <!--当前有用户登录，并且该用户为超级管理员，显示关于、管理员账户激活-->
           <% elsif @current_user && @current_user.role == 2 %>
 <!--            <li><%#= link_to "关于","#" %></li>-->
