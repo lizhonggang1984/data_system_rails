@@ -16,10 +16,33 @@
   <div class="navbar clearfix">
     <div class="container">
       <a class="navbar-brand" href="/">Data System</a>
-      <ul class="nav right">
-        <li><%= link_to "login","#" %></li>
-        <li><%= link_to "Register","#" %></li>
-      </ul>
+        <ul class="nav left">
+          <!--当前有用户登录，并且该用户为管理员，显示关于、用户管理、帖子管理-->
+          <% if @current_user && @current_user.role == 1 %>
+            <li><%= link_to "关于","#" %></li>
+            <li><%= link_to "用户管理","#" %></li>
+            <li><%= link_to "帖子管理", "#"%></li>
+            <!--当前有用户登录，并且该用户为超级管理员，显示关于、管理员账户激活-->
+          <% elsif @current_user && @current_user.role == 2 %>
+            <li><%= link_to "关于","#" %></li>
+            <li><%= link_to "管理员账户激活", "#" %></li>
+            <!--当前有用户登录，并且该用户为普通用户，显示关于-->
+          <% elsif @current_user && @current_user.role == 0 %>
+            <li><%= link_to "about","#" %></li>
+          <% end %>
+        </ul>
+        <ul class="nav right">
+          <!--当前有用户登录，右侧显示该用户的相关信息-->
+          <% if @current_user %>
+            <li><%= link_to "Current:"+@current_user.name,"#" %></li>
+            <li><%= link_to "Role:"+Account::ROLE[@current_user.role],"#"%></li>
+            <li><%= link_to "Logout","/logout",method:'delete' %></li>
+            <!--当前没有用户登录，右侧显示注册、登录链接-->
+          <% else %>
+            <li><%= link_to "login","/login" %></li>
+            <li><%= link_to "register","/signup" %></li>
+          <% end %>
+        </ul>
     </div>
   </div>
 
@@ -31,9 +54,10 @@
   <% end %>
   <div class="footer">
     <div>
-      <p class="align">©Copy Right©  2020</p>
+      <p class="align"> Copy Right© John, 2020</p>
     </div>
   </div>
+
   <script>
       $('.home-banner').anystretch();
 

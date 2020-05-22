@@ -1,0 +1,34 @@
+<div class="signup-form-container clearfix">
+  <div class="signup-form">
+    <%= form_for @account,url:"/create_account" do |f| %>
+      <dl class="form">
+        <dt><%= f.label :name, "username" %></dt>
+        <dd><%= f.text_field :name %></dd>
+      </dl>
+      <dl class="form">
+        <dt><%= f.label :email %></dt>
+        <dd><%= f.text_field :email %></dd>
+      </dl>
+      <dl class="form">
+        <dt><%= f.label :password, "password" %></dt>
+        <dd><%= f.password_field :password %></dd>
+      </dl>
+      <dl class="form">
+        <dt><%= f.label :password_confirmation, "confirm password" %></dt>
+        <dd><%= f.password_field :password_confirmation %></dd>
+      </dl>
+      <dl class="form">
+        <dt><%= f.label :role, "role" %></dt>
+        <dd>
+          <select name="account[role]" class="form-control" >
+            <% Account::ROLE.each do |role| %>
+              <option value= "<%= role[0] %>"><%= role[1] %></option>
+            <% end %>
+          </select>
+        </dd>
+      </dl>
+      <p><%= f.submit "register", :class => "signup-button btn btn-primary" %></p>
+    <% end %>
+  </div>
+</div>
+
