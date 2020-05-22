@@ -10,6 +10,8 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag "application","vendor/jquery.anystretch.min", 'data-turbolinks-track': 'reload'%>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+
   </head>
 
   <body>
@@ -24,8 +26,8 @@
             <li><%= link_to "帖子管理", "#"%></li>
             <!--当前有用户登录，并且该用户为超级管理员，显示关于、管理员账户激活-->
           <% elsif @current_user && @current_user.role == 2 %>
-            <li><%= link_to "关于","#" %></li>
-            <li><%= link_to "管理员账户激活", "#" %></li>
+<!--            <li><%#= link_to "关于","#" %></li>-->
+            <li><%= link_to "Admin Account", '/account_active' %></li>
             <!--当前有用户登录，并且该用户为普通用户，显示关于-->
           <% elsif @current_user && @current_user.role == 0 %>
             <li><%= link_to "about","#" %></li>
@@ -50,7 +52,7 @@
 
 
   <% if flash.notice %>
-    <div class="notice"><%= flash.notice %></div>
+<!--    <div class="notice"><%#= flash.notice %></div>-->
   <% end %>
   <div class="footer">
     <div>

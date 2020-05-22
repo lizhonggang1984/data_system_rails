@@ -1,0 +1,22 @@
+<div class="container">
+  <table class="active_table" border="1px" style="">
+    <tr>
+      <th>Username</th>
+      <th>Email</th>
+      <th>Status</th>
+    </tr>
+    <!--循环@accounts对象集合，里面有所有的管理人账号-->
+    <% @accounts.each do |account| %>
+      <tr>
+        <td width="30%" ><%= account.name %></td>
+        <td width="40%"><%= account.email %></td>
+        <% if account.status == 1 %>
+          <!--如果账户为未激活状态，放在<a>标签内-->
+          <td width="30%" class="name"><a href="/update_active/<%= account.id %>">Inactive Account</a></td>
+        <% else %>
+          <td width="30%">Activated</td>
+        <% end %>
+      </tr>
+    <% end %>
+  </table>
+</div>

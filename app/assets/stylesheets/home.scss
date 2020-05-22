@@ -37,3 +37,97 @@
     }
   }
 }
+
+.issue-list {
+  background: #fff;
+  clear: both;
+  padding: 0 1em;
+  margin-bottom: 1em;
+  border: 1px solid #ddd;
+  article {
+    border-bottom: 1px solid #e3e3e3;
+    position: relative;
+    margin-top: 0;
+    padding: 1em 0;
+    .body {
+      margin-right: 2em;
+      width: 72%;
+      float: left;
+      .read-more{
+        background-color: #f5999d;
+        color: #fff;
+        font-size: 14px;
+        border-radius: 4px;
+        letter-spacing: -0.3px;
+        display: inline-block;
+        line-height: 1.7;
+        font-weight: 100;
+        padding: 0 5px;
+        margin-top: 2px;
+      }
+      .meta-data {
+        color: #999;
+        font-size: 12px;
+      }
+      h5 {
+        font-size: 22px;
+        line-height: 35px;
+        font-weight: normal;
+        margin: 0 0 5px;
+        a {
+          color: #555;
+          &:hover {
+            color: black;
+          }
+        }
+      }
+      .icon-top {
+        background-color: #0054a5;
+        color: #fff;
+        font-size: 12px;
+        border-radius: 4px;
+        letter-spacing: -0.2px;
+        display: inline-block;
+        line-height: 1.6;
+        font-weight: 100;
+        padding: 0 6px;
+        float:left;
+        margin-top: 7px;
+        margin-right: 5px;
+      }
+      .icon-good {
+        background-color: #f16522;
+        color: #fff;
+        font-size: 12px;
+        border-radius: 4px;
+        letter-spacing: -0.2px;
+        display: inline-block;
+        line-height: 1.6;
+        font-weight: 100;
+        padding: 0 6px;
+        float:left;
+        margin-top: 7px;
+        margin-right: 5px;
+      }
+      .as_sb {
+        display: block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+    }
+    .issue-comment-count {
+      float: right;
+      margin-top: 15px;
+      a {
+        font-size: 45px;
+      }
+    }
+    .avatar {
+      width: 85px;
+      border:1px solid #a5b6c8;
+      background:#eef3f7;
+      text-align: center;
+    }
+  }
+}

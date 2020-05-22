@@ -1,5 +1,21 @@
 class AccountsController < ApplicationController
   before_action :check_login, except:[:signup,:create_account,:login,:create_login,:logout]
+  def account_active
+    #查出所有管理员账号
+    @accounts = Account.where(role:1)
+  end
+
+  def update_active
+    #取出params哈希中的account_id参数
+    account_id = params[:account_id]
+    #查找出account_id对应的Account对象
+    account = Account.find(account_id)
+    #将状态修改成已激活
+    account.status = 0
+    account.save
+    #修改完则直接跳转到account_active页面
+    redirect_to :account_active
+  end
 
   def logout
     # session[:account_id] = nil
